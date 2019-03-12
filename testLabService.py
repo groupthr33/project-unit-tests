@@ -1,4 +1,7 @@
 import unittest
+from labSection import LabSection
+from labService import LabService
+
 
 class MockedLabSectionDao:
     def get_by_id(self, id):
@@ -19,7 +22,7 @@ class MockedLabSectionDao:
 class TestLabService(unittest.TestCase):
 
     def setUp(self):
-        self.labService = LabService(MockedLabDao())
+        self.labService = LabService(MockedLabSectionDao())
 
     def test_add_lab_to_course(self):
         id = "801"
@@ -35,7 +38,7 @@ class TestLabService(unittest.TestCase):
         courseId = "CS 361"
 
         expected_response = "User jbarney has been assigned as a TA for course CS 361."
-        actual_response = self.labService.assign_TA(taUserName, courseId, sectionId)
+        actual_response = self.labService.assign_TA(taUserName, courseId, None)
 
         self.assertEqual(actual_response, expected_response)
 

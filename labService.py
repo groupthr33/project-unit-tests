@@ -1,1 +1,3 @@
-# TODO: everything
+
+class LabService:
+    pass

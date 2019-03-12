@@ -6,10 +6,10 @@ from user import User
 
 class MockedUserDao:
     def get_by_id(self, username):
-        return User()
+        return User("joe", "jbarney")
 
     def get_all(self):
-        return [User(), User()]
+        return [User("joe", "jdoe"), User("joe", "jbarney")]
 
     def update(self, user):
         return User()
